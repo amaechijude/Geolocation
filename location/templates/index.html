@@ -12,15 +12,36 @@
 </head>
 
 <body>
+    <div class="container-sm">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <h4>Add a new place</h4>
+                <form action="{% url 'addPlace' %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="place">Name of a place</label>
+                        <input type="text" name="place" class="form-control" id="place"
+                            placeholder="Enter Name of a place">
+                    </div>
+                    <div class="form-group">
+                        <label for="mapURL">Google Map Url</label>
+                        <input type="url" class="form-control" id="mapURL" name="mapURL"
+                            placeholder="Enter location google map url">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Shop Name</th>
-                <th scope="col">Get Disttance</th>
-                <th scope="col">Disance</th>
-                <th scope="col">Locate</th>
-                <th scope="col">Curr Location</th>
+                <th scope="col">Name of Place</th>
+                <th scope="col">Get Distance</th>
+                <th scope="col">Distance in KM</th>
             </tr>
         </thead>
         {% if school %}
@@ -29,10 +50,9 @@
             <tr>
                 <th scope="row">{{ s.id }}</th>
                 <td> {{ s.sch_name }} </td>
-                <td> <button type="button" class="btn btn-primary" onclick="GetDistance('{{s.id}}','{{ s.google_map }}')">Get Distance</button> </td>
+                <td> <button type="button" class="btn btn-primary"
+                        onclick="GetDistance('{{s.id}}','{{ s.google_map }}')">Get Distance</button> </td>
                 <td id="distance_{{ s.id }}"></td>
-                <td><button type="button" class="btn btn-danger" onclick="CurrentLocation()">Locate</button> </td>
-                <td><button class="btn btn-success" onclick="Coordinate('{{ s.id }}')">Test</button></td>
             </tr>
             {% endfor %}
         </tbody>

@@ -2,5 +2,6 @@ from django.urls import path
 from . import views
 urlpatterns = [
     path('', views.Index, name='index'),
-    path('get_url/<int:id>', views.get_url, name='get_url')
+    path('getDistance/<int:sch_id>', views.getDistance, name='getDistance'),
+    path('addPlace', views.addPlace, name='addPlace'),
 ]

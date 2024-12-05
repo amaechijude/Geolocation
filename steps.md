@@ -1,1 +1,0 @@
-Click button and pars
