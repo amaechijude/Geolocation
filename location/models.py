@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class School(models.Model):
+class Location(models.Model):
     sch_name = models.CharField(blank=False, max_length=25)
     google_map = models.URLField(blank=False)
 
