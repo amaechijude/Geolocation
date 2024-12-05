@@ -32,13 +32,7 @@
                 <td> <button type="button" class="btn btn-primary" onclick="GetDistance('{{s.id}}','{{ s.google_map }}')">Get Distance</button> </td>
                 <td id="distance_{{ s.id }}"></td>
                 <td><button type="button" class="btn btn-danger" onclick="CurrentLocation()">Locate</button> </td>
-                <td>
-                    <form id="urlForm" method="post">
-                        {% csrf_token %}
-                        <input type="hidden" name="short_url" value="{{ s.google_map }}">
-                        <button type="submit" class="btn btn-success">Get Url</button>
-                    </form>
-                </td>
+                <td><button class="btn btn-success" onclick="Coordinate('{{ s.id }}')">Test</button></td>
             </tr>
             {% endfor %}
         </tbody>

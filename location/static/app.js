@@ -1,18 +1,14 @@
 // Get full url
-const urlForm = document.getElementById("urlForm");
-urlForm.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const form = new FormData(urlForm);
- 
-    const response = await fetch(`/get_url`, {
-        method: 'POST',
-        body: form
-    });
-    const data = await response.json();
-    console.log(data);
-    urlForm.reset();
-});
+async function Coordinate(paramID) {
+    try {
+        const response = await fetch(`/get_url/${paramID}`);
+        const data = await response.json();
+        console.log(data)
 
+    } catch (error) {
+        console.log("Server error");
+    }
+}
 
 
 
@@ -21,8 +17,7 @@ function GetDistance(sId, sURL) {
     trow.textContent = sURL;
 }
 
-function CurrentLocation()
-{
+function CurrentLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosiion)
     } else {
@@ -31,5 +26,6 @@ function CurrentLocation()
 }
 
 function showPosiion(position) {
-    console.log(position.coords.latitude);
+    const latitude = position.coords.latitude;
+    const longiude = position.coords.longiude;
 }
