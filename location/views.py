@@ -7,7 +7,6 @@ from .models import Location
 import requests
 from geopy.distance import geodesic
 
-
 # Create your views here.
 # Home view
 def Index(request):
